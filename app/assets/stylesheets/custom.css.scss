@@ -4,13 +4,12 @@ $navbar-default-bg: #e67e22;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
 .center {
   text-align: center;
 }
 
 .jumbotron {
-  background-image: asset-url('cover_jumbotron.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5 )), asset-url('cover_jumbotron.jpg');
   background-size: cover;
   height: 400px;
 }
@@ -30,7 +29,7 @@ $navbar-default-bg: #e67e22;
 }
 
 .jumbotron h1, h2 {
-  color: #cf6d17;
+  color: #fff;
   text-align: center;
   margin-bottom: 30px;
   letter-spacing: -1px;
@@ -38,7 +37,8 @@ $navbar-default-bg: #e67e22;
 }
 
 .btn-xlarge {
-  background-color: #024094;
+  background-color: #858f5b;
+  border: none;
 }
 
 .btn-xlarge:hover {
