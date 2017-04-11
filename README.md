@@ -22,3 +22,18 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+* 
+
+Participant
+- participant should be valid
+- name should be present
+- description should be present
+- participant_id should be present **
+- maximum length for name and description, maybe a minimum for description
+
+Builder
+- buildername should be present
+- email should be present
+- size restriction on email and buildername
+- email address should be valid format
+- email should be unique, case insensitve
