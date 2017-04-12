@@ -3,8 +3,14 @@ require 'test_helper'
 class WagonTest < ActiveSupport::TestCase
   
   def setup
-    @wagon = Wagon.new(name: "kwintet", description: "Dwaallicht")
+    @corsogroup = Corsogroup.create!(corsoname: "philip", email: "philip@example.com")
+    @wagon = @corsogroup.wagons.build(name: "kwintet", description: "Dwaallicht")
   end
+  
+  test "wagon without corsogroup should be invalid" do
+    @wagon.corsogroup_id = nil
+    assert_not @wagon.valid?
+    end
   
   test "wagon should be valid" do
     assert @wagon.valid?
