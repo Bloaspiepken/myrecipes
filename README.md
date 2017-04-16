@@ -37,3 +37,13 @@ Builder
 - size restriction on email and buildername
 - email address should be valid format
 - email should be unique, case insensitve
+
+
+Prefix      Verb    URI Pattern           Controller#Action
+wagons      GET     /wagons               wagons#index
+new_wagon   GET     /wagons/new           wagons#new          #displays a new form
+            POST    /wagons               wagons#create       #submit the information from the form
+edit_wagon  GET     /wagons/:id/edit      wagons#edit         #display an edit form
+            PATCH   /wagons/:id           wagons#update       #submit the edited form information
+wagons      GET     /wagons/:id           wagons#show         #display a particular wagon
+            DELETE  /wagons/:id           wagons#destroy      #deletes a particular wagon
