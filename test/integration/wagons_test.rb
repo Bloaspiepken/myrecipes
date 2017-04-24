@@ -31,6 +31,7 @@ class WagonsTest < ActionDispatch::IntegrationTest
     assert_match @corsogroup.corsoname, response.body
     assert_select 'a[href=?]', edit_wagon_path(@wagon), text: "Edit this float"
     assert_select 'a[href=?]', wagon_path(@wagon), text: "Delete this float"
+    assert_select 'a[href=?]', wagons_path, text: "Return to floats listing"
   end
   
   test "create new valid wagon" do

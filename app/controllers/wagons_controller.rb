@@ -1,10 +1,12 @@
 class WagonsController < ApplicationController
+  before_action :set_wagon, only: [:show, :edit, :update]
+  
   def index
     @wagons = Wagon.all
   end
   
   def show
-    @wagon = Wagon.find(params[:id])
+
   end
   
   def new
@@ -23,11 +25,10 @@ class WagonsController < ApplicationController
   end
   
   def edit
-    @wagon = Wagon.find(params[:id])
+
   end
   
   def update
-    @wagon = Wagon.find(params[:id])
     if @wagon.update(wagon_params)
       flash[:success] = "Float was updated successfully"
       redirect_to wagon_path(@wagon)
@@ -43,6 +44,10 @@ class WagonsController < ApplicationController
   end
   
   private
+  
+  def set_wagon
+    @wagon = Wagon.find(params[:id])
+  end
   
   def wagon_params
     params.require(:wagon).permit(:name, :description)
