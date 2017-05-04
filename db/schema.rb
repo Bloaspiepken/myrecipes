@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170411193146) do
+ActiveRecord::Schema.define(version: 20170424191808) do
 
   create_table "builders", force: :cascade do |t|
     t.string   "name"
@@ -22,8 +22,9 @@ ActiveRecord::Schema.define(version: 20170411193146) do
   create_table "corsogroups", force: :cascade do |t|
     t.string   "corsoname"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
   end
 
   create_table "participants", force: :cascade do |t|

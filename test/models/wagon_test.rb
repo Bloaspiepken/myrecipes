@@ -3,7 +3,8 @@ require 'test_helper'
 class WagonTest < ActiveSupport::TestCase
   
   def setup
-    @corsogroup = Corsogroup.create!(corsoname: "philip", email: "philip@example.com")
+    @corsogroup = Corsogroup.create!(corsoname: "philip", email: "philip@example.com",
+                              password: "password", password_confirmation: "password")
     @wagon = @corsogroup.wagons.build(name: "kwintet", description: "Dwaallicht")
   end
   

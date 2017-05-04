@@ -3,7 +3,8 @@ require 'test_helper'
 class WagonsEditTest < ActionDispatch::IntegrationTest
   
   def setup
-    @corsogroup = Corsogroup.create!(corsoname: "philip", email: "philip@example.com")
+    @corsogroup = Corsogroup.create!(corsoname: "philip", email: "philip@example.com",
+                              password: "password", password_confirmation: "password")
     @wagon = Wagon.create(name: "philip", description: "Dwaallicht", corsogroup: @corsogroup)
   end
    

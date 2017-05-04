@@ -1,5 +1,4 @@
-$navbar-default-bg: #e67e22;
-
+$navbar-default-bg: #66850d;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -9,7 +8,7 @@ $navbar-default-bg: #e67e22;
 }
 
 .jumbotron {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5 )), asset-url('cover_jumbotron.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3 )), asset-url('cover_jumbotron.jpg');
   background-size: cover;
   height: 400px;
 }
@@ -17,7 +16,7 @@ $navbar-default-bg: #e67e22;
 #logo {
   float: left;
   font-size: 1.7em;
-  color: #fff;
+  color: #ddd;
   text-transform: uppercase;
   letter-spacing: -1px;
   font-weight: bold;
@@ -37,7 +36,7 @@ $navbar-default-bg: #e67e22;
 }
 
 .btn-xlarge {
-  background-color: #858f5b;
+  background-color: #66850d;
   border: none;
 }
 
@@ -50,7 +49,7 @@ $navbar-default-bg: #e67e22;
 footer {
     color: #fff;
     text-align: center;
-    background-color: #e67e22;
+    background-color: #66850d;
     padding: 50px;
     font-size: 80%;
 }
@@ -61,6 +60,7 @@ footer {
 }
 
 .social-links {
+    color: #fff;
     list-style: none;
     float: right;
 }
@@ -82,7 +82,7 @@ footer {
 .social-links li a:visited {
     text-decoration: none;
     border: 0;
-    color: #888;
+    color: #fff;
     transition: color 0.2s;
 }
 

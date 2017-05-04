@@ -47,3 +47,11 @@ edit_wagon  GET     /wagons/:id/edit      wagons#edit         #display an edit f
             PATCH   /wagons/:id           wagons#update       #submit the edited form information
 wagons      GET     /wagons/:id           wagons#show         #display a particular wagon
             DELETE  /wagons/:id           wagons#destroy      #deletes a particular wagon
+            
+password_digest
+
+password
+
+password_confirmation
+
+authenticate

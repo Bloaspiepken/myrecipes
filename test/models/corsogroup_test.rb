@@ -3,7 +3,8 @@ require 'test_helper'
 class CorsogroupTest < ActiveSupport::TestCase
   
   def setup
-    @corsogroup = Corsogroup.new(corsoname: "philip", email: "philip@example.com")
+    @corsogroup = Corsogroup.new(corsoname: "philip", email: "philip@example.com",
+                          password: "password", password_confirmation: "password")                          
   end
   
   test "should be valid" do
@@ -58,6 +59,16 @@ class CorsogroupTest < ActiveSupport::TestCase
     @corsogroup.email = mixed_email
     @corsogroup.save
     assert_equal mixed_email.downcase, @corsogroup.reload.email
+  end
+  
+  test "password should be present" do
+    @corsogroup.password = @corsogroup.password_confirmation = " "
+    assert_not @corsogroup.valid?
+  end
+  
+  test "password should be atleast 5 characters"  do
+    @corsogroup.password = @corsogroup.password_confirmation = "x" * 4
+    assert_not @corsogroup.valid?
   end
  
 end
