@@ -18,6 +18,20 @@ class CorsogroupsController < ApplicationController
     @corsogroup = Corsogroup.find(params[:id])
   end
   
+  def edit
+    @corsogroup = Corsogroup.find(params[:id])
+  end
+  
+  def update
+    @corsogroup = Corsogroup.find(params[:id])
+    if @corsogroup.update(corsogroup_params)
+      flash[:success] = "Your account was updated successfully"
+      redirect_to @corsogroup
+    else
+      render 'edit'
+    end
+  end
+  
   private 
   
   def corsogroup_params
