@@ -15,7 +15,7 @@ class CorsogroupsController < ApplicationController
   end
   
   def show
-    
+    @corsogroup = Corsogroup.find(params[:id])
   end
   
   private 
