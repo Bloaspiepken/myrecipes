@@ -70,5 +70,13 @@ class CorsogroupTest < ActiveSupport::TestCase
     @corsogroup.password = @corsogroup.password_confirmation = "x" * 4
     assert_not @corsogroup.valid?
   end
+  
+  test "associated floats should be destroyed" do
+    @corsogroup.save
+    @corsogroup.wagons.create!(name: "testing destroy", description: "testing destroy function")
+    assert_difference 'Wagon.count', -1 do
+      @corsogroup.destroy
+    end
+  end
  
 end

@@ -9,6 +9,8 @@
           <li><%= link_to gravatar_for(corsogroup), corsogroup_path(corsogroup) %></li>
           <li class="corsogroup-title"><%= link_to corsogroup.corsoname.capitalize, corsogroup_path(corsogroup) %></li>
           <li><small><%= pluralize(corsogroup.wagons.count, "float") if corsogroup.wagons %></small></li>
+          <li><%= link_to "Delete this corsogroup", corsogroup_path(corsogroup), method: :delete,
+                    data: {confirm: "Are you sure you want to delete the corsogroup and all associated floats?"} %></li>
         </div>
       </div>
     </ul>

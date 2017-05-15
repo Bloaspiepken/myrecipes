@@ -37,6 +37,13 @@ class CorsogroupsController < ApplicationController
     end
   end
   
+  def destroy
+   @corsogroup = Corsogroup.find(params[:id])
+   @corsogroup.destroy
+   flash[:danger] = "Corsogroup and all associated floats have been deleted"
+   redirect_to corsogroups_path
+  end
+  
   private 
   
   def corsogroup_params

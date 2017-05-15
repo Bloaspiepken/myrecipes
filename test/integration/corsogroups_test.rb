@@ -16,6 +16,16 @@ class CorsogroupsTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", corsogroup_path(@corsogroup2), text: @corsogroup2.corsoname.capitalize
   end
   
+  test "should delete corsogroup" do
+    get corsogroups_path
+    assert_template 'corsogroups/index'
+    assert_difference 'Corsogroup.count', -1 do
+      delete corsogroup_path(@corsogroup2)
+    end
+    assert_redirected_to corsogroups_path
+    assert_not flash.empty?
+  end
+  
   # test "the truth" do
   #   assert true
   # end
