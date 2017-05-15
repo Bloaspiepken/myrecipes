@@ -2,7 +2,7 @@ class WagonsController < ApplicationController
   before_action :set_wagon, only: [:show, :edit, :update]
   
   def index
-    @wagons = Wagon.all
+    @wagons = Wagon.paginate(page: params[:page], per_page: 5)
   end
   
   def show

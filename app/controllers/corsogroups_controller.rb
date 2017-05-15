@@ -1,5 +1,9 @@
 class CorsogroupsController < ApplicationController
   
+  def index
+    @corsogroups = Corsogroup.paginate(page: params[:page], per_page: 5)
+  end
+  
   def new
     @corsogroup = Corsogroup.new
   end
@@ -16,6 +20,7 @@ class CorsogroupsController < ApplicationController
   
   def show
     @corsogroup = Corsogroup.find(params[:id])
+    @corsogroup_wagons = @corsogroup.wagons.paginate(page: params[:page], per_page: 5)
   end
   
   def edit

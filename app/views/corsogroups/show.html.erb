@@ -6,4 +6,11 @@
 </div>
 
 <h4 align="center"><%= @corsogroup.corsoname %>'s float</h4>
-<%= render 'wagons/wagon', obj: @corsogroup.wagons %>
+
+<div align="center">
+  <%= will_paginate @corsogroup_wagons %>
+</div>
+<%= render 'wagons/wagon', obj: @corsogroup_wagons %>
+<div align="center">
+  <%= will_paginate @corsogroup_wagons %>
+</div>
