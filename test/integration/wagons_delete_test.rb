@@ -8,6 +8,7 @@ class WagonsDeleteTest < ActionDispatch::IntegrationTest
   end
   
   test "successfully delete a float" do
+    sign_in_as(@corsogroup, "password")
     get wagon_path(@wagon)
     assert_template 'wagons/show'
     assert_select 'a[href=?]', wagon_path(@wagon), text: "Delete this float"

@@ -1,5 +1,7 @@
 class WagonsController < ApplicationController
-  before_action :set_wagon, only: [:show, :edit, :update]
+  before_action :set_wagon, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
   
   def index
     @wagons = Wagon.paginate(page: params[:page], per_page: 5)
@@ -15,7 +17,7 @@ class WagonsController < ApplicationController
   
   def create
     @wagon = Wagon.new(wagon_params)
-    @wagon.corsogroup = Corsogroup.last
+    @wagon.corsogroup = current_corsogroup
     if @wagon.save
       flash[:success] = "Float was created successfully!"
       redirect_to wagon_path(@wagon)
@@ -52,4 +54,12 @@ class WagonsController < ApplicationController
   def wagon_params
     params.require(:wagon).permit(:name, :description)
   end
+  
+  def require_same_user
+      if current_corsogroup != @wagon.corsogroup
+        flash[:danger] = "You can only edit or delete your own floats"
+        redirect_to wagons_path
+      end
+  end
+  
 end

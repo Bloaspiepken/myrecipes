@@ -8,6 +8,7 @@ class CorsogroupsEditTest < ActionDispatch::IntegrationTest
   end  
 
   test "reject an invalid edit" do
+    sign_in_as(@corsogroup, "password")
     get edit_corsogroup_path(@corsogroup)
     assert_template 'corsogroups/edit'
     patch corsogroup_path(@corsogroup), params: { corsogroup: { corsoname: " ", email: "philip@example.com" } }
@@ -17,6 +18,7 @@ class CorsogroupsEditTest < ActionDispatch::IntegrationTest
   end
   
   test "accept valid sign up" do
+    sign_in_as(@corsogroup, "password")
     get edit_corsogroup_path(@corsogroup)
     assert_template 'corsogroups/edit'
     patch corsogroup_path(@corsogroup), params: { corsogroup: { corsoname: "philip1", email: "philip1@example.com" } }

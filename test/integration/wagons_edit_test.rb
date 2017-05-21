@@ -9,6 +9,7 @@ class WagonsEditTest < ActionDispatch::IntegrationTest
   end
    
   test "reject invalid wagon update" do
+    sign_in_as(@corsogroup, "password")
     get edit_wagon_path(@wagon)
     assert_template 'wagons/edit'
     patch wagon_path(@wagon), params: { wagon: { name: " ", description: "some description" } }
@@ -18,6 +19,7 @@ class WagonsEditTest < ActionDispatch::IntegrationTest
   end
   
   test "successfully edit a wagon" do
+    sign_in_as(@corsogroup, "password")
     get edit_wagon_path(@wagon)
     assert_template 'wagons/edit'
     updated_name = "updated float name"

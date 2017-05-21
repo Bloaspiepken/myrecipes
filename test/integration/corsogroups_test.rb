@@ -17,6 +17,7 @@ class CorsogroupsTest < ActionDispatch::IntegrationTest
   end
   
   test "should delete corsogroup" do
+    sign_in_as(@corsogroup2, "password")
     get corsogroups_path
     assert_template 'corsogroups/index'
     assert_difference 'Corsogroup.count', -1 do

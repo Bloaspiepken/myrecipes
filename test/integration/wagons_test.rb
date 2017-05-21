@@ -25,6 +25,7 @@ class WagonsTest < ActionDispatch::IntegrationTest
   end
   
   test "should get wagons show" do
+    sign_in_as(@corsogroup, "password")
     get wagon_path(@wagon)
     assert_template 'wagons/show'
     assert_match @wagon.name, response.body
@@ -36,6 +37,7 @@ class WagonsTest < ActionDispatch::IntegrationTest
   end
   
   test "create new valid wagon" do
+    sign_in_as(@corsogroup, "password")
     get new_wagon_path
     assert_template 'wagons/new'
     name_of_wagon = "teeuws"
@@ -49,6 +51,7 @@ class WagonsTest < ActionDispatch::IntegrationTest
   end
   
   test "rejects invalid wagon submissions" do
+    sign_in_as(@corsogroup, "password")
     get new_wagon_path
     assert_template 'wagons/new'
     assert_no_difference 'Wagon.count' do

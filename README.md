@@ -55,3 +55,11 @@ password
 password_confirmation
 
 authenticate
+
+SESSION!
+
+- sessions_controller.rb
+- login routes - login, logout
+- test to get the route
+- Not a model backed resource!
+- Storing the encrypted corsogroup_id in the session hash
