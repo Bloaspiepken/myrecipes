@@ -56,7 +56,7 @@ class WagonsController < ApplicationController
   end
   
   def require_same_user
-      if current_corsogroup != @wagon.corsogroup
+      if current_corsogroup != @wagon.corsogroup and !current_corsogroup.admin?
         flash[:danger] = "You can only edit or delete your own floats"
         redirect_to wagons_path
       end

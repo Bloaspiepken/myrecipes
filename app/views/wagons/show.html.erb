@@ -18,7 +18,7 @@
     </p>
     </div>
     <div class="wagon-actions">
-      <% if logged_in? && current_corsogroup == @wagon.corsogroup %>
+      <% if logged_in? && (current_corsogroup == @wagon.corsogroup || current_corsogroup.admin?) %>
         <%= link_to "Edit this float", edit_wagon_path(@wagon), class: "btn btn-xs btn-warning" %>
         <%= link_to "Delete this float", wagon_path(@wagon), method: :delete,
                                          data: { confirm: "Are you sure you want to delete this float?" },

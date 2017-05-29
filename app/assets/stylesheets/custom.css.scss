@@ -3,6 +3,19 @@ $navbar-default-bg: #66850d;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.navbar .nav > li > a {
+    float: none;
+    line-height: 19px;
+    padding: 9px 10px 11px;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    color:  #5BC0DE;
+}
+.navbar .nav > li > a:hover {
+    text-decoration: none;
+    color:  #5BC0DE;
+}
+
 .center {
   text-align: center;
 }
@@ -16,7 +29,7 @@ $navbar-default-bg: #66850d;
 #logo {
   float: left;
   font-size: 1.7em;
-  color: #ddd;
+  color: #fff;
   text-transform: uppercase;
   letter-spacing: -1px;
   font-weight: bold;

@@ -63,3 +63,22 @@ SESSION!
 - test to get the route
 - Not a model backed resource!
 - Storing the encrypted corsogroup_id in the session hash
+
+
+Admin user functionality
+
+- Permission system virtual necessity in every web based / software app
+
+- Can be very complex, in CRM or Project Management app's they are one of the primary features
+
+-  There can be separate tables with permissions for different user levels
+   *This means multiple actions on each and every page will need to hit the database for checks - compromising performance
+
+- Simple permission based system - You can have a role attribute added to users
+  *Roles can admin, supervisor, moderator, etc with different access levels
+
+- For our app we'll add on admin attribute, if true then the user is an admin. The default will be false
+
+- We'll update our vieuws and controllers based on this
+
+Admins will have full access - editing other corsogroup's floats, updating corsogroup info, deleting other corsogroups

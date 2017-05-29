@@ -2,6 +2,7 @@ class CorsogroupsController < ApplicationController
   
   before_action :set_corsogroup, only: [:show, :edit, :update, :destroy]
   before_action :require_same_user, only: [:edit, :update, :destroy]
+  before_action :require_admin, only: [:destroy]
   
   def index
     @corsogroups = Corsogroup.paginate(page: params[:page], per_page: 5)
@@ -40,9 +41,11 @@ class CorsogroupsController < ApplicationController
   end
   
   def destroy
-   @corsogroup.destroy
-   flash[:danger] = "Corsogroup and all associated floats have been deleted"
-   redirect_to corsogroups_path
+    if !@corsogroup.admin?
+      @corsogroup.destroy
+      flash[:danger] = "Corsogroup and all associated floats have been deleted"
+      redirect_to corsogroups_path
+    end
   end
   
   private 
@@ -56,9 +59,16 @@ class CorsogroupsController < ApplicationController
   end
   
   def require_same_user
-    if current_corsogroup != @corsogroup
+    if current_corsogroup != @corsogroup and !current_corsogroup.admin?
       flash[:danger] = "You can only edit or delete your own account"
       redirect_to corsogroups_path
+    end
+  end
+  
+  def require_admin
+    if logged_in? && !current_corsogroup.admin?
+      flash[:danger] = "Only admin users can perform that action"
+      redirect_to root_path
     end
   end
   

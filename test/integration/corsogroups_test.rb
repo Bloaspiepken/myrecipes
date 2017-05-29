@@ -7,6 +7,8 @@ class CorsogroupsTest < ActionDispatch::IntegrationTest
                               password: "password", password_confirmation: "password")
     @corsogroup2 = Corsogroup.create!(corsoname: "john", email: "john@example.com",
                               password: "password", password_confirmation: "password")
+    @admin_user = Corsogroup.create!(corsoname: "john1", email: "john1@example.com",
+                              password: "password", password_confirmation: "password", admin: true)
   end
   
     test "should get corsogroups listing" do
@@ -17,7 +19,7 @@ class CorsogroupsTest < ActionDispatch::IntegrationTest
   end
   
   test "should delete corsogroup" do
-    sign_in_as(@corsogroup2, "password")
+    sign_in_as(@admin_user, "password")
     get corsogroups_path
     assert_template 'corsogroups/index'
     assert_difference 'Corsogroup.count', -1 do
