@@ -82,3 +82,25 @@ Admin user functionality
 - We'll update our vieuws and controllers based on this
 
 Admins will have full access - editing other corsogroup's floats, updating corsogroup info, deleting other corsogroups
+
+Ingredients
+
+- many-to-many association
+
+- skip building test-suite
+
+- building faster
+
+- still no generators unless necessary
+
+- has_many :through
+
+will be present in all floats
+
+each float will have more then one ingredient - many ingredients
+
+same ingredient can be used by many floats
+
+we will start building the back-end of this
+
+

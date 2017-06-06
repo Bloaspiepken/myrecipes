@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524131610) do
+ActiveRecord::Schema.define(version: 20170606085044) do
 
   create_table "builders", force: :cascade do |t|
     t.string   "name"
@@ -28,11 +28,20 @@ ActiveRecord::Schema.define(version: 20170524131610) do
     t.boolean  "admin",           default: false
   end
 
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "participants", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "wagon_ingredients", force: :cascade do |t|
+    t.integer "wagon_id"
+    t.integer "ingredient_id"
   end
 
   create_table "wagons", force: :cascade do |t|
