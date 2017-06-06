@@ -104,3 +104,9 @@ same ingredient can be used by many floats
 we will start building the back-end of this
 
 
+Comments
+
+-will have description attribute
+-will have 2 one-to-many associations with wagons and corsogroups
+-therefore - will have corsogroup_id and wagon_id foreign keys
+

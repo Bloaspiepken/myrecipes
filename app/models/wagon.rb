@@ -6,4 +6,5 @@ class Wagon < ApplicationRecord
   default_scope -> { order(updated_at: :desc)}
   has_many :wagon_ingredients
   has_many :ingredients, through: :wagon_ingredients
+  has_many :comments, dependent: :destroy
 end
