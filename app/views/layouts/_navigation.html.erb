@@ -17,9 +17,9 @@
       <ul class="nav navbar-nav">
         <li><%= link_to "Corsogroups", corsogroups_path, class: "navbar-detail", id: "detail" %></li>
         <li><%= link_to "All floats", wagons_path, class: "navbar-detail", id: "detail" %></li>
+        <% if logged_in? %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Floats <span class="caret"></span></a>
-            <% if logged_in? %>
             <ul class="dropdown-menu">
               <li><%= link_to "Create a new float", new_wagon_path, class: "navbar-detail", id: "detail" %></li>
               <li><a href="#">Another action</a></li>
@@ -31,6 +31,19 @@
             </ul>
           </li>
         <% end %>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dahlia / materials <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "All flowers and materials", ingredients_path, class: "navbar-detail", id: "detail" %></li>
+              <% Ingredient.all.each do |ingredient| %>
+                <li><%= link_to ingredient.name.capitalize, ingredient_path(ingredient) %></li>
+              <% end %>
+              <% if logged_in? && current_corsogroup.admin? %>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "New flower or material", new_ingredient_path %></li>
+              <% end %>
+            </ul>
+          </li>
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">

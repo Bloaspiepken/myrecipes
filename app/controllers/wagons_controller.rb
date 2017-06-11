@@ -52,7 +52,7 @@ class WagonsController < ApplicationController
   end
   
   def wagon_params
-    params.require(:wagon).permit(:name, :description)
+    params.require(:wagon).permit(:name, :description, ingredient_ids: [])
   end
   
   def require_same_user

@@ -3,6 +3,9 @@
 <div class="well col-md-8 col-md-offset-2">
   <h4 class="center description"><strong>Description: </strong></h4>
   <hr />
+  <% if @wagon.ingredients.any? %>
+    <p>Flowers or materials: <%= render @wagon.ingredients %></p>
+  <% end %>
   <%= simple_format(@wagon.description) %>
   <hr />
     <div class="pull-right">
@@ -10,7 +13,7 @@
       <em>Created by:</em>
     </p>
     <p class="center">
-      <%= link_to gravatar_for(@wagon.corsogroup), wagons_path %>
+      <%= link_to gravatar_for(@wagon.corsogroup), corsogroup_path(@wagon.corsogroup) %>
     </p>
     <p class="center">
       <small><%= @wagon.corsogroup.corsoname %></small>

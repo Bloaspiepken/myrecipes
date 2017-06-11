@@ -4,13 +4,16 @@
     <%= gravatar_for @corsogroup, size: 150 %>
   </div>
 </div>
-
-<h4 align="center"><%= @corsogroup.corsoname %>'s float</h4>
-
-<div align="center">
-  <%= will_paginate @corsogroup_wagons %>
-</div>
-<%= render 'wagons/wagon', obj: @corsogroup_wagons %>
-<div align="center">
-  <%= will_paginate @corsogroup_wagons %>
-</div>
+<% if @corsogroup.wagons.count != 0 %>
+  <h4 align="center"><%= @corsogroup.corsoname %>'s float</h4>
+  
+  <div align="center">
+    <%= will_paginate @corsogroup_wagons %>
+  </div>
+  <%= render 'wagons/wagon', obj: @corsogroup_wagons %>
+  <div align="center">
+    <%= will_paginate @corsogroup_wagons %>
+  </div>
+<% else %>
+  <h4 align="center">No floats created yet!</h4>
+<% end %>

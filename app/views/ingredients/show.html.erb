@@ -1,0 +1,14 @@
+<%= render 'shared/page_title', title:  "#{@ingredient.name}" %>
+<% if @ingredient.wagons.count != 0 %>
+  <h4 align="center">Float's containing<%= @ingredient.name %></h4>
+  
+  <div align="center">
+    <%= will_paginate @ingredient_wagons %>
+  </div>
+  <%= render 'wagons/wagon', obj: @ingredient_wagons %>
+  <div align="center">
+    <%= will_paginate @ingredient_wagons %>
+  </div>
+<% else %>
+  <h4 align="center">No floats created yet!</h4>
+<% end %>

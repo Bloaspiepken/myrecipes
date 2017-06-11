@@ -8,8 +8,11 @@
     <div class="col-md-8 well">
         <h4><%= link_to wagon.name, wagon_path(wagon) %></h4>
         <p><%= truncate(wagon.description, length: 150) %></p>
+        <% if wagon.ingredients.any? %>
+          <p>Flowers and materials: <%= render wagon.ingredients %></p>
+        <% end %>
         <p>
-          <span class="quiet"><small>Created <%= time_ago_in_words(wagon.created_at) %> ago</small></span>
+          <span class="quiet"><small>Created <%= time_ago_in_words(wagon.created_at) %> ago by <%= wagon.corsogroup.corsoname.capitalize %></small></span>
         </p>
         <% if logged_in? && (current_corsogroup == wagon.corsogroup || current_corsogroup.admin?) %>
           <div class="wagon-actions">
