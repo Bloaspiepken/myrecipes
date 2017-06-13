@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root "pages#home"
   get 'pages/home', to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :wagons
+  resources :wagons do
+    resources :comments, only: [:create]
+  end
   
   get '/signup', to: 'corsogroups#new'
   resources :corsogroups, except: [:new]

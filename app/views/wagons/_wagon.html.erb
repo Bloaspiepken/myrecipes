@@ -12,7 +12,8 @@
           <p>Flowers and materials: <%= render wagon.ingredients %></p>
         <% end %>
         <p>
-          <span class="quiet"><small>Created <%= time_ago_in_words(wagon.created_at) %> ago by <%= wagon.corsogroup.corsoname.capitalize %></small></span>
+          <span class="quiet"><small>Created <%= time_ago_in_words(wagon.created_at) %> ago by <%= wagon.corsogroup.corsoname.capitalize %>
+                                                          | <%= pluralize(wagon.comments.count, 'Comment') %></small></span>
         </p>
         <% if logged_in? && (current_corsogroup == wagon.corsogroup || current_corsogroup.admin?) %>
           <div class="wagon-actions">
