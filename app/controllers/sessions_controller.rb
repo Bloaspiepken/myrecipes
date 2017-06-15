@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     corsogroup = Corsogroup.find_by(email: params[:session][:email].downcase)
     if corsogroup && corsogroup.authenticate(params[:session][:password])
       session[:corsogroup_id] = corsogroup.id
+      cookies.signed[:corsogroup_id] = corsogroup.id
       flash[:success] = "You have successfully logged in"
       redirect_to corsogroup
     else

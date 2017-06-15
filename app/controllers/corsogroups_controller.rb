@@ -16,6 +16,7 @@ class CorsogroupsController < ApplicationController
    @corsogroup = Corsogroup.new(corsogroup_params)
    if @corsogroup.save
      session[:corsogroup_id] = @corsogroup.id
+     cookies.signed[:corsogroup_id] = @corsogroup.id
      flash[:success] = "Welcome #{@corsogroup.corsoname} to MyFloats App!"
      redirect_to corsogroup_path(@corsogroup)
    else

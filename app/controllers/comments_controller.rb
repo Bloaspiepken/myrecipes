@@ -6,8 +6,9 @@ class CommentsController < ApplicationController
     @comment = @wagon.comments.build(comment_params)
     @comment.corsogroup = current_corsogroup
     if @comment.save
-      flash[:success] = "Comment was created successfully"
-      redirect_to wagon_path(@wagon)
+      ActionCable.server.broadcast "comments", render(partial: 'comments/comment', object: @comment)
+      # flash[:success] = "Comment was created successfully"
+      # redirect_to wagon_path(@wagon)
     else
       flash[:danger] = "Comment was not created"
       redirect_to :back
