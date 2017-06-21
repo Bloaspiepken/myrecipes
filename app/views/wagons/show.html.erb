@@ -31,6 +31,17 @@
     </div>
 </div>
 
+<div class="liking">
+  <%= link_to like_wagon_path(@wagon, like: true), method: :post do %>
+  
+  <% end %> <%= @wagon.thumbs_up_total %> ||
+
+
+  <%= link_to like_wagon_path(@wagon, like: false), method: :post do %>
+  
+  <% end %><%= @wagon.thumbs_down_total %>
+</div>
+
 <% if logged_in? %>
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
