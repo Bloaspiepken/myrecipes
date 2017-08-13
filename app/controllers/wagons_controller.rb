@@ -68,6 +68,10 @@ class WagonsController < ApplicationController
     params.require(:wagon).permit(:name, :description, ingredient_ids: [])
   end
   
+  def wagon_params
+  params.require(:wagon).permit(:name, :description, :image, ingredient_ids: [])
+  end
+  
   def require_same_user
       if current_corsogroup != @wagon.corsogroup and !current_corsogroup.admin?
         flash[:danger] = "You can only edit or delete your own floats"

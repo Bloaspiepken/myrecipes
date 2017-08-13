@@ -23,6 +23,19 @@
                                          class: "btn btn-xs btn-danger" %>    
           </div>
         <% end %>
+      <div class="row">
+        <div class="pull-right liking">
+          <%= link_to like_wagon_path(wagon, like: true), method: :post do %>
+            <i class="glyphicon glyphicon-thumbs-up"></i> 
+          <% end %> <%= wagon.thumbs_up_total %> || 
+          <%= link_to like_wagon_path(wagon, like: false), method: :post do %>
+            <i class="glyphicon glyphicon-thumbs-down"></i>
+          <% end %> <%= wagon.thumbs_down_total %>
+         </div>
+       </div>
+    </div>
+        <div class="col-md-2">
+      <%= image_tag(wagon.image.url, size: "350x200") if wagon.image? %>
     </div>
   </div>
   

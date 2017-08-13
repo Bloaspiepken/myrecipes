@@ -1,6 +1,9 @@
 <%= render 'shared/page_title', title: @wagon.name %>
 
 <div class="well col-md-8 col-md-offset-2">
+  <div align="center">
+    <%= image_tag @wagon.image.url if @wagon.image? %>
+  </div>
   <h4 class="center description"><strong>Description: </strong></h4>
   <hr />
   <% if @wagon.ingredients.any? %>
@@ -31,15 +34,15 @@
     </div>
 </div>
 
-<div class="liking">
-  <%= link_to like_wagon_path(@wagon, like: true), method: :post do %>
-  
-  <% end %> <%= @wagon.thumbs_up_total %> ||
-
-
-  <%= link_to like_wagon_path(@wagon, like: false), method: :post do %>
-  
-  <% end %><%= @wagon.thumbs_down_total %>
+<div class="row">
+  <div class="row col-md-8 col-md-offset-2">
+    <%= link_to like_wagon_path(@wagon, like: true), method: :post do %>
+      <i class="glyphicon glyphicon-thumbs-up"></i> 
+    <% end %> <%= @wagon.thumbs_up_total %> || 
+    <%= link_to like_wagon_path(@wagon, like: false), method: :post do %>
+      <i class="glyphicon glyphicon-thumbs-down"></i>
+    <% end %> <%= @wagon.thumbs_down_total %>
+  </div>
 </div>
 
 <% if logged_in? %>
